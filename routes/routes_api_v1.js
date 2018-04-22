@@ -1,11 +1,11 @@
 // API version 1
-var express = require('express');
-var router = express.Router();
-var path = require('path');
+const express = require('express');
+const router = express.Router();
+const path = require('path');
 router.get('*', function(request, response) {
-    response.status(200);
+    response.status(404);
     response.json({
-        "description": "Recipes REST server API version 1 is no longer supported. Please use API version 2."
+        "error": "Recipes REST server API version 1 is no longer supported. Please use API version 2."
     });
 });
 module.exports = router;
