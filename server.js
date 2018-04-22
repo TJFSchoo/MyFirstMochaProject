@@ -14,7 +14,12 @@ app.all('*', function(request, response, next) {
     console.log(request.method + " " + request.url);
     next();
 });
-app.use('/api/v1', require('./routes/routes_api_v1'));
+app.use('/api/v1/', require('./routes/routes_api_v1'));
+app.use('/api/v2/info', require('./routes/routes_api_v2_info'));
+app.use('/api/v2/', require('./routes/routes_api_v2'));
+
+
+
 
 
 //
