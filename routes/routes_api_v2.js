@@ -5,7 +5,7 @@ const router = express.Router();
 const path = require('path');
 
 router.get('/info', function(request, response) {
-    response.status(404);
+    response.status(200);
     response.json({
         "description": "API practicumopdracht 2, les 2"
     });
@@ -21,7 +21,7 @@ router.get('/recipes', function(request, response) {
     response.json(result);
 });
 
-// Recipes API query specifiek op nummer in de array ( bijvoorbeeld recept 2 van de 3 totaal)
+// Recipes API query specifiek op nummer in de array ( localhost:8080/api/v2/recipes/2 bijv.)
 router.get('/recipes/:number/', function(request, response) {
     let result = [];
     let number = request.params.number || '';
@@ -33,7 +33,6 @@ router.get('/recipes/:number/', function(request, response) {
     }
     response.status(200);
     response.json(result);
-
 });
 
 router.get('*', function(request, response) {

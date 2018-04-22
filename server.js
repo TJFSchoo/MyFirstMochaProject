@@ -14,7 +14,8 @@ app.all('*', function(request, response, next) {
 app.use('/api/v1', require('./routes/routes_api_v1'));
 app.use('/api/v2', require('./routes/routes_api_v2'));
 
-
 app.listen(port, function() {
     console.log('Server app is listening on port ' + port);
 });
+
+module.exports = app;
