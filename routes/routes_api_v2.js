@@ -11,11 +11,17 @@ router.get('/info', function(request, response) {
     });
 });
 
+// Recipes API query, werkt met specificatie op category ( localhost:8080/api/v2/recipes?category=Pasta bijv.)
 router.get('/recipes', function(request, response) {
+    let catgr = request.query.category || '';
+    let result = recipes.filter(function(y){
+        return (y.category === catgr);
+    });
     response.status(200);
-    response.json(recipes);
+    response.json(result);
 });
 
+// Recipes API query specifiek op nummer in de array ( bijvoorbeeld recept 2 van de 3 totaal)
 router.get('/recipes/:number/', function(request, response) {
     let result = [];
     let number = request.params.number || '';
@@ -25,7 +31,6 @@ router.get('/recipes/:number/', function(request, response) {
     } else {
         result = recipes[number];
     }
-
     response.status(200);
     response.json(result);
 
